@@ -1,3 +1,9 @@
+import "./view.css";
+
 export default function ViewDashboard() {
-  return <h1>Public Dashboard View</h1>;
+  return (
+    <div className="view-container">
+      <h1>Public Dashboard</h1>
+    </div>
+  );
 }

@@ -1,0 +1,7 @@
+.view-container {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1rem;
+}
