@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import axios from "axios";
 import { supabase } from "./supabaseClient";
 
 export default function App() {
@@ -7,12 +8,39 @@ export default function App() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    logVisitorInfo();
+  }, []);
+
+  const logVisitorInfo = async () => {
+    try {
+      // 1. Get IP and location info
+      const ipRes = await axios.get("https://ipapi.co/json/");
+      const { ip, city, region, country_name } = ipRes.data;
+
+      // 2. Get device info from browser
+      const deviceInfo = `${navigator.platform} | ${navigator.userAgent}`;
+      const location = `${city}, ${region}, ${country_name}`;
+
+      // 3. Save to Supabase
+      await supabase.from("visitor_logs").insert([
+        {
+          ip_address: ip,
+          device_info: deviceInfo,
+          location: location,
+        },
+      ]);
+    } catch (err) {
+      console.error("Error logging visitor:", err);
+    }
+  };
+
   const handleLogin = async () => {
     const { data, error } = await supabase
       .from("users")
       .select("*")
       .eq("username", username)
-      .eq("password", password) // ⚠️ Insecure, demo only
+      .eq("password", password) // ⚠️ Insecure, for demo only
       .single();
 
     if (error || !data) {

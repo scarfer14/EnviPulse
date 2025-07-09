@@ -47,3 +47,133 @@
 .nav-btn-out:hover {
   background-color: #960707;
 }
+
+.title-font {
+  color: #fcfcfc;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.content-wrap {
+  background-color: rgb(255, 255, 255, 0.5);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.content-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #580192;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.school-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.school-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4f46e5; /* Indigo */
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.school-button:hover {
+  background-color: #4338ca; 
+}
+
+/*MODAL FOR HEAD TSX*/
+/* --- Modal Styling --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.webcam-box {
+  max-width: 600px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.webcam-feed {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*VISITORS*/
+.visitor-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  color: black;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.visitor-table th,
+.visitor-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.visitor-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.visitor-table tr:hover {
+  background-color: #f0f0f0;
+}
+
