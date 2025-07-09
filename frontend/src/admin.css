@@ -2,6 +2,48 @@
   color: white;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: stretch;
   padding: 1rem;
+}
+
+.nav-bar {
+  background-color: #fcfcfc65;
+  display: inline-flex; 
+  gap: 0.5rem; 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(87, 50, 2, 0.8);
+  padding: 1rem 2rem;
+}
+
+.nav-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #105003;
+}
+
+.nav-btn-out {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn-out:hover {
+  background-color: #960707;
 }
