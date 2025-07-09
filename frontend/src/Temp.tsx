@@ -15,6 +15,9 @@ export default function AdminDashboard() {
         <button className="nav-btn" onClick={() => navigate("/visitors")}>Visitors</button>
         <button className="nav-btn-out" onClick={() => navigate("/")}>Logout</button>
       </div>
+      <div>
+        <h1>Temp Logs</h1>
+      </div>
     </div>
   );
 }
