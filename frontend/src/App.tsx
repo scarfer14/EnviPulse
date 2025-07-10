@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { supabase } from "./supabaseClient";
 
@@ -14,24 +14,29 @@ export default function App() {
 
   const logVisitorInfo = async () => {
     try {
-      // 1. Get IP and location info
-      const ipRes = await axios.get("https://ipapi.co/json/");
-      const { ip, city, region, country_name } = ipRes.data;
+      
+      const res = await axios.get("https://ipinfo.io/json?token=bfa2b9375142bc");
+      const { ip, city, region, country } = res.data;
 
-      // 2. Get device info from browser
+      const location = `${city || "Unknown"}, ${region || ""}, ${country || ""}`;
       const deviceInfo = `${navigator.platform} | ${navigator.userAgent}`;
-      const location = `${city}, ${region}, ${country_name}`;
 
-      // 3. Save to Supabase
-      await supabase.from("visitor_logs").insert([
+      
+      const { error } = await supabase.from("visitor_logs").insert([
         {
           ip_address: ip,
           device_info: deviceInfo,
-          location: location,
+          location,
         },
       ]);
+
+      if (error) {
+        console.error("Insert failed:", error);
+      } else {
+        console.log("Visitor logged:", ip);
+      }
     } catch (err) {
-      console.error("Error logging visitor:", err);
+      console.error("Visitor log failed:", err);
     }
   };
 
@@ -40,7 +45,7 @@ export default function App() {
       .from("users")
       .select("*")
       .eq("username", username)
-      .eq("password", password) // ⚠️ Insecure, for demo only
+      .eq("password", password) // ⚠️ Insecure: hash passwords in production
       .single();
 
     if (error || !data) {
