@@ -121,7 +121,9 @@
   position: relative;
   width: 90%;
   max-width: 400px;
+  max-height: 90vh; 
   text-align: center;
+  overflow-y: auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -179,3 +181,46 @@
   background-color: #f0f0f0;
 }
 
+/*TEMP*/
+.modal-box.wide {
+  max-width: 60%;
+  width: auto;
+  padding: 2rem;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .school-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .school-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.modal-box.wide .visitor-table {
+  max-height: 60vh;
+  overflow-y: auto;
+  display: block;
+}
+
+.content-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/*EXTERNAL*/
+
+.log-table-scroll {
+  max-height: 300px; /* Adjust this height as needed */
+  overflow-y: auto;
+  margin-top: 1rem;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+}
