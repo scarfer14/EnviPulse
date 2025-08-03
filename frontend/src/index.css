@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: sans-serif;
-  background: linear-gradient(to right, #000000, #1a237e, #283593);
+  background: linear-gradient(to right, #ffd700, #ff4500, #8b0000);
 }
 
 .page-container {
@@ -32,6 +32,9 @@ html, body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: auto;
+  height: 120px;
+  padding: 0.5rem 0;
 }
 
 .login-input {
@@ -39,7 +42,7 @@ html, body {
   width: 80%;
   margin: 0.5rem auto;
   padding: 0.75rem;
-  border: 1px solid #067715;
+  border: 1px solid rgb(6, 20, 85);
   border-radius: 0.5rem;
   font-size: 1rem;
   outline: none;
@@ -67,7 +70,7 @@ html, body {
   border-radius: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  background-color: rgb(22, 85, 6);
+  background-color: rgb(6, 20, 85);
   color: white;
   transition: background-color 0.3s;
 }
